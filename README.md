@@ -1,2 +1,6 @@
-# compiladores_tarea3
-Compiladores Tarea 3
+# Compiladores Tarea 3
+
+# Integrantes
+- Jaime Ramos
+- Angel Mucha
+- Sebastian Chu
