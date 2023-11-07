@@ -81,6 +81,7 @@ AssignStatement::AssignStatement(string id, Exp* e):id(id), rhs(e) { }
 PrintStatement::PrintStatement(Exp* e):e(e) { }
 IfStatement::IfStatement(Exp* c,Body *tb, Body* fb):cond(c),tbody(tb), fbody(fb) { }
 WhileStatement::WhileStatement(Exp* c,Body *b):cond(c),body(b) { }
+ForStatement::ForStatement(Exp* e, Exp* ee, Body* tb): e(e), ee(ee), tb(tb) { }
 
 StatementList::StatementList():slist() {}
 VarDec::VarDec(string type, list<string> vars):type(type), vars(vars) {}
@@ -93,6 +94,7 @@ AssignStatement::~AssignStatement() { delete rhs; }
 PrintStatement::~PrintStatement() { delete e; }
 IfStatement::~IfStatement() { delete fbody; delete tbody; delete cond; }
 WhileStatement::~WhileStatement() { delete body; delete cond; }
+ForStatement::~ForStatement() { delete e; delete ee; delete tb; }
 
 StatementList::~StatementList() { }
 VarDec::~VarDec() { }
@@ -109,6 +111,10 @@ int PrintStatement::accept(ImpVisitor* v) {
 }
 
 int IfStatement::accept(ImpVisitor* v) {
+  return v->visit(this);
+}
+
+int ForStatement::accept(ImpVisitor* v) {
   return v->visit(this);
 }
 

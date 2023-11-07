@@ -1,5 +1,9 @@
-var int x;
+var int x, y;
 
-x = 10;
+for x: 0, 100 do 
+y = y + 1
+endfor;
 
-print(2*x-30/5)
+print(y)
+
+
