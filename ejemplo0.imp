@@ -1,0 +1,5 @@
+var int x;
+
+x = 10;
+
+print(2*x-30/5)

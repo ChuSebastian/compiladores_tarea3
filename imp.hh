@@ -114,6 +114,16 @@ public:
   ~IfStatement();
 };
 
+class ForStatement : public Stm {
+  public:
+  Exp *e, *ee;
+  Body* tb;
+  ForStatement(Exp* e, Exp* ee, Body* tb);
+  int accept(ImpVisitor* v);
+  void accept(TypeVisitor* v);
+  ~ForStatement();
+};
+
 class WhileStatement : public Stm {
 public:
   Exp* cond;
@@ -123,7 +133,6 @@ public:
   void accept(TypeVisitor* v);
   ~WhileStatement();
 };
-
 
 class StatementList {
 public:

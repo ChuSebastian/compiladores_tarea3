@@ -157,6 +157,10 @@ void WhileStatement::accept(TypeVisitor* v) {
   return v->visit(this);
 }
 
+void ForStatement::accept(TypeVisitor* v) {
+  return v->visit(this);
+}
+
 
 void StatementList::accept(TypeVisitor* v) {
   return v->visit(this);

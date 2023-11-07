@@ -85,7 +85,14 @@ void ImpTypeChecker::visit(IfStatement* s) {
 void ImpTypeChecker::visit(WhileStatement* s) {
   s->cond->accept(this);
   s->body->accept(this);
- return;
+  return;
+}
+
+void ImpTypeChecker::visit(ForStatement* s) {
+  s->e->accept(this);
+  s->ee->accept(this);
+  s->tb->accept(this);
+  return;
 }
 
 ImpType ImpTypeChecker::visit(BinaryExp* e) {

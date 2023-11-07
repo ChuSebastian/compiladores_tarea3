@@ -79,6 +79,14 @@ int ImpInterpreter::visit(WhileStatement* s) {
  return 0;
 }
 
+int ImpInterpreter::visit(ForStatement* s) {
+  for (auto i = s->e->accept(this); i < s->ee->accept(this); i++) {
+    s->tb->accept(this);
+  }
+  return 0;
+}
+
+
 int ImpInterpreter::visit(BinaryExp* e) {
   int v1 = e->left->accept(this);
   int v2 = e->right->accept(this);
