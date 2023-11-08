@@ -26,6 +26,7 @@ NumberExp::NumberExp(int v):value(v) {}
 IdExp::IdExp(string id):id(id) {}
 ParenthExp::ParenthExp(Exp *e):e(e){}
 CondExp::CondExp(Exp *c, Exp* et, Exp* ef):cond(c), etrue(et), efalse(ef){}
+BoolExp::BoolExp(bool b):value(b){}
 
 Exp::~Exp() {}
 BinaryExp::~BinaryExp() { delete left; delete right; }
@@ -33,6 +34,7 @@ NumberExp::~NumberExp() { }
 IdExp::~IdExp() { }
 ParenthExp::~ParenthExp(){ delete e; }
 CondExp::~CondExp(){ delete cond; delete etrue; delete efalse; }
+BoolExp::~BoolExp(){ }
 
 int BinaryExp::accept(ImpVisitor* v) {
   return v->visit(this);
@@ -51,6 +53,10 @@ int ParenthExp::accept(ImpVisitor* v) {
 }
 
 int CondExp::accept(ImpVisitor* v) {
+  return v->visit(this);
+}
+
+int BoolExp::accept(ImpVisitor* v) {
   return v->visit(this);
 }
 
@@ -74,6 +80,10 @@ ImpType ParenthExp::accept(TypeVisitor* v) {
 }
 
 ImpType CondExp::accept(TypeVisitor* v) {
+  return v->visit(this);
+}
+
+ImpType BoolExp::accept(TypeVisitor* v) {
   return v->visit(this);
 }
 

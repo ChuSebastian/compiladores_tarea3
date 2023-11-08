@@ -35,6 +35,7 @@ public:
   ImpType visit(IdExp* e);
   ImpType visit(ParenthExp* e);
   ImpType visit(CondExp* e);
+  ImpType visit(BoolExp* e);
 };
 
 

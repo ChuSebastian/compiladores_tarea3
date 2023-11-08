@@ -21,6 +21,7 @@ public:
   virtual int visit(IdExp* e) = 0;
   virtual int visit(ParenthExp* e) = 0;
   virtual int visit(CondExp* e) = 0;
+  virtual int visit(BoolExp* e) = 0;
 };
 
 
