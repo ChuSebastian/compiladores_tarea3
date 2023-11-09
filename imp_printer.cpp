@@ -104,6 +104,12 @@ int ImpPrinter::visit(NumberExp* e) {
   return 0;
 }
 
+int ImpPrinter::visit(TrueFalseExp* e) {
+  if (e->value) cout << "true";
+  else cout << "false";
+  return 0;
+}
+
 int ImpPrinter::visit(IdExp* e) {
   cout << e->id;
   return 0;

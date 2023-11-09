@@ -113,6 +113,11 @@ int ImpInterpreter::visit(NumberExp* e) {
   return e->value;
 }
 
+int ImpInterpreter::visit(TrueFalseExp* e) {
+  int r = (e->value) ? 1 : 0;
+  return r;
+}
+
 int ImpInterpreter::visit(IdExp* e) {
   if (env.check(e->id))
     return env.lookup(e->id);

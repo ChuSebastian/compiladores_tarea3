@@ -46,6 +46,15 @@ public:
   ~NumberExp();
 };
 
+class TrueFalseExp : public Exp {
+public:
+  bool value;
+  TrueFalseExp(bool v);
+  int accept(ImpVisitor* v);
+  ImpType accept(TypeVisitor* v);
+  ~TrueFalseExp();
+};
+
 class IdExp : public Exp {
 public:
   string id;

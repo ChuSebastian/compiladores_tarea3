@@ -128,6 +128,10 @@ ImpType ImpTypeChecker::visit(NumberExp* e) {
   return inttype;
 }
 
+ImpType ImpTypeChecker::visit(TrueFalseExp* e) {
+  return booltype;
+}
+
 ImpType ImpTypeChecker::visit(IdExp* e) {
   if (env.check(e->id))
     return env.lookup(e->id);

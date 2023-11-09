@@ -26,10 +26,12 @@ NumberExp::NumberExp(int v):value(v) {}
 IdExp::IdExp(string id):id(id) {}
 ParenthExp::ParenthExp(Exp *e):e(e){}
 CondExp::CondExp(Exp *c, Exp* et, Exp* ef):cond(c), etrue(et), efalse(ef){}
+TrueFalseExp::TrueFalseExp(bool v):value(v) {}
 
 Exp::~Exp() {}
 BinaryExp::~BinaryExp() { delete left; delete right; }
 NumberExp::~NumberExp() { }
+TrueFalseExp::~TrueFalseExp() { }
 IdExp::~IdExp() { }
 ParenthExp::~ParenthExp(){ delete e; }
 CondExp::~CondExp(){ delete cond; delete etrue; delete efalse; }
@@ -39,6 +41,11 @@ int BinaryExp::accept(ImpVisitor* v) {
 }
 
 int NumberExp::accept(ImpVisitor* v) {
+  return v->visit(this);
+}
+
+
+int TrueFalseExp::accept(ImpVisitor* v) {
   return v->visit(this);
 }
 
@@ -62,6 +69,10 @@ ImpType BinaryExp::accept(TypeVisitor* v) {
 }
 
 ImpType NumberExp::accept(TypeVisitor* v) {
+  return v->visit(this);
+}
+
+ImpType TrueFalseExp::accept(TypeVisitor* v) {
   return v->visit(this);
 }
 

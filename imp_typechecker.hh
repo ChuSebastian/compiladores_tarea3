@@ -32,6 +32,7 @@ public:
   
   ImpType visit(BinaryExp* e);
   ImpType visit(NumberExp* e);
+  ImpType visit(TrueFalseExp* e);
   ImpType visit(IdExp* e);
   ImpType visit(ParenthExp* e);
   ImpType visit(CondExp* e);
