@@ -82,14 +82,6 @@ public:
   ~CondExp();
 };
 
-class BoolExp : public Exp {
-public:
-  bool value;
-  BoolExp(bool v);
-  int accept(ImpVisitor* v);
-  ImpType accept(TypeVisitor* v);
-  ~BoolExp();
-};
 
 
 class Stm {

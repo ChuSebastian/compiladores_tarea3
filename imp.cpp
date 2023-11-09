@@ -63,7 +63,6 @@ int CondExp::accept(ImpVisitor* v) {
 
 
 
-
 // type visitor
 ImpType BinaryExp::accept(TypeVisitor* v) {
   return v->visit(this);
@@ -88,7 +87,6 @@ ImpType ParenthExp::accept(TypeVisitor* v) {
 ImpType CondExp::accept(TypeVisitor* v) {
   return v->visit(this);
 }
-
 
 AssignStatement::AssignStatement(string id, Exp* e):id(id), rhs(e) { }
 PrintStatement::PrintStatement(Exp* e):e(e) { }

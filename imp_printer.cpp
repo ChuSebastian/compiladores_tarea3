@@ -132,7 +132,3 @@ int ImpPrinter::visit(CondExp* e) {
   cout << ')';
   return 0;
 }
-
-int ImpPrinter::visit(BoolExp* e) {
-  return 0;
-}

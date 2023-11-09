@@ -126,6 +126,14 @@ int ImpInterpreter::visit(IdExp* e) {
     exit(0);
   }
   return 0;
+  /*
+  if (memoria_check(e->id))
+    return memoria_lookup(e->id);
+  else {
+    cout << "Variable indefinida: " << e->id << endl;
+    exit(0);
+  }
+  */
 }
 
 int ImpInterpreter::visit(ParenthExp* ep) {
@@ -137,19 +145,4 @@ int ImpInterpreter::visit(CondExp* e) {
     return e->efalse->accept(this);
   else
     return e->etrue->accept(this);
-}
-
-//interprete del boolexp
-int ImpInterpreter::visit(BoolExp* e) {
-  int v1 = e->left->accept(this);
-  int v2 = e->right->accept(this);
-  int result = 0;
-  switch(e->op) {
-  case LT: result = (v1 < v2) ? 1 : 0; break;
-  case LTEQ: result = (v1 <= v2) ? 1: 0; break;
-  case EQ: result = (v1 == v2) ? 1 : 0; break;
-  case AND: result = (v1 && v2) ? 1 : 0; break;
-  case OR: result = (v1 || v2) ? 1 : 0; break;
-  }
-  return result;
 }

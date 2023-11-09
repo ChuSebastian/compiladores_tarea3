@@ -23,7 +23,6 @@ public:
   virtual ImpType visit(IdExp* e) = 0;
   virtual ImpType visit(ParenthExp* e) = 0;
   virtual ImpType visit(CondExp* e) = 0;
-  virtual ImpType visit(BoolExp* e) = 0;
 };
 
 
