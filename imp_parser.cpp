@@ -425,6 +425,12 @@ Exp* Parser::parseFactor() {
     if (!match(Token::RPAREN)) parserError("Expecting right parenthesis");
     return new CondExp(c,et,ef);
   }
+  if (match(Token::TRUE)) {
+    return new BoolExp(true);
+  }
+  if (match(Token::FALSE)) {
+    return new BoolExp(false);
+  }
   cout << "Couldn't find match for token: " << current << endl;
   exit(0);
 }
